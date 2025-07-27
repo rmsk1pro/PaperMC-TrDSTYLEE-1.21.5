@@ -64,28 +64,25 @@ Sinta-se à vontade para usar, modificar e compartilhar.
 ---
 
 
+### ✅ EnderChest Plus (54 slots)  
+📦 Clique com o botão direito em um **Ender Chest físico** e uma versão expandida será aberta:  
+- **Slots expandidos (54)** se a versão/modificação permitir  
+- Som de abertura e fechamento customizados  
+- Comando adicional: `/echestplus`
 
-📦 Código Temporário – Abertura do Ender Chest Real (Spigot)
-⚠️ Aviso: Este código é temporário e acessa diretamente o Ender Chest real do jogador utilizando a API do Spigot.
-No futuro, será substituído por um sistema de inventário próprio, já em desenvolvimento na source modificada do Spigot, eliminando a necessidade de plugins.
-
+```java
 @EventHandler
 public void onEnderChestOpen(PlayerInteractEvent event) {
     if (event.getAction() == Action.RIGHT_CLICK_BLOCK &&
         event.getClickedBlock() != null &&
         event.getClickedBlock().getType() == Material.ENDER_CHEST) {
 
-        // Cancela a abertura padrão do baú
-        event.setCancelled(true);
+        event.setCancelled(true); // Impede a abertura padrão
 
         Player player = event.getPlayer();
-        Inventory realEnderChest = player.getEnderChest(); // Ender Chest real do jogador
+        Inventory realEnderChest = player.getEnderChest(); // Pode estar modificado para 54 slots
 
-        // Toca o som de abertura do Ender Chest
         player.playSound(player.getLocation(), Sound.BLOCK_ENDER_CHEST_OPEN, 1.0f, 1.0f);
-
-        // Abre o inventário real do Ender Chest
-        // OBS: Se a source já estiver modificada, pode ter 54 slots
         player.openInventory(realEnderChest);
     }
 }
@@ -94,8 +91,6 @@ public void onEnderChestOpen(PlayerInteractEvent event) {
 public void onEnderChestClose(InventoryCloseEvent event) {
     if (event.getInventory().equals(event.getPlayer().getEnderChest())) {
         Player player = (Player) event.getPlayer();
-
-        // Toca o som de fechamento do Ender Chest
         player.playSound(player.getLocation(), Sound.BLOCK_ENDER_CHEST_CLOSE, 1.0f, 1.0f);
     }
 }
