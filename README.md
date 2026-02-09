@@ -1,4 +1,8 @@
 
+<img width="1024" height="1536" alt="Paperspigot" src="https://github.com/user-attachments/assets/80f46d2e-437c-4a63-beb0-52205aab4163" />
+
+
+
 <img width="1630" height="930" alt="PaperTPS" src="https://github.com/user-attachments/assets/9aedc822-cbe8-4408-8509-8dd1cc8c07ac" />
 
 <img width="1636" height="898" alt="PaperEnderChest" src="https://github.com/user-attachments/assets/42c6eb1e-0a5c-43f9-8d44-4865e21ab184" />
